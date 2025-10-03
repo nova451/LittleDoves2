@@ -1,0 +1,191 @@
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>「𝑳𝒊𝒕𝒕𝒍𝒆 𝑫𝒐𝒗𝒆𝒔」 ִֶָ. ..𓂃 ࣪ ִֶָ🪽་༘࿐</title>
+  <style>
+    :root{
+      --bg1:#fbf8ff;
+      --bg2:#e6dcf9;
+      --accent:#8b63d9;
+      --btn:#0088cc;
+      --card-bg: rgba(255,255,255,0.85);
+      --card-shadow: 0 10px 30px rgba(97,64,167,0.12);
+      --heart-size: 160px; /* размер квадрата/сердца — увеличиваем здесь */
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(180deg,var(--bg1),var(--bg2));
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      color:#3b2b5a;
+      padding:40px;
+    }
+
+    .container{
+      width: 100%;
+      max-width: 1100px;
+      text-align:center;
+    }
+
+    /* Заголовок — увеличен */
+    h1.site-title{
+      font-size: 72px;          /* <<--- крупнее */
+      line-height: 1.02;
+      margin: 0 0 18px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: var(--accent);
+      text-shadow: 0 4px 18px rgba(139,99,217,0.12);
+      word-break:break-word;
+    }
+
+    .subtitle{
+      font-size: 18px;
+      color:#6a5b8f;
+      margin-bottom: 28px;
+    }
+
+    /* Большой квадрат-карточка */
+    .card {
+      --size: calc(var(--heart-size) + 120px); /* квадрат — сочетание с размером сердца */
+      width: var(--size);
+      height: var(--size);
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 22px;
+      box-shadow: var(--card-shadow);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(97,64,167,0.16);
+    }
+
+    /* Сердечко (SVG) внутри квадрата — масштабируем через var(--heart-size) */
+    .heart-wrap{
+      width: var(--heart-size);
+      height: var(--heart-size);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      pointer-events: none; /* клики идут на кнопку внизу, если нужно */
+    }
+
+    /* кнопка Telegram */
+    .actions{
+      margin-top:24px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .telegram-link{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background: linear-gradient(180deg,#00a6e6,#0088cc);
+      color:white;
+      padding:14px 20px;
+      border-radius:28px;
+      text-decoration:none;
+      font-weight:600;
+      box-shadow: 0 8px 20px rgba(0,136,204,0.18);
+      transition: transform .12s ease;
+    }
+    .telegram-link:hover{ transform: translateY(-3px); }
+
+    /* Небольшая подсказка */
+    .footer{
+      margin-top:36px;
+      color:#8b7fb0;
+      font-size:13px;
+    }
+
+    /* Анимация пульса для сердечка (на старте нет, добавим класс .pulse для эффекта) */
+    @keyframes pulse {
+      0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(255,44,107,0.0)); }
+      50% { transform: scale(1.07); filter: drop-shadow(0 12px 28px rgba(255,44,107,0.16)); }
+      100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(255,44,107,0.0)); }
+    }
+    .heart-svg.pulse { animation: pulse 700ms ease; }
+    /* Уменьшаем шум на маленьких экранах */
+    @media (max-width:720px){
+      h1.site-title{ font-size:40px; }
+      .card{ --size: calc(var(--heart-size) + 60px); }
+      :root{ --heart-size:120px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="site-title">「𝑳𝒊𝒕𝒕𝒍𝒆 𝑫𝒐𝒗𝒆𝒔」 ִֶָ. ..𓂃 ࣪ ִֶָ🪽་༘࿐</h1>
+    <div class="subtitle">Флуд по геншину, мы рады видеть всех!❤️</div>
+
+    <!-- Большой квадрат с сердцем -->
+    <div class="card" id="card">
+      <div class="heart-wrap">
+        <!-- SVG сердечко: цвет меняется кликом по кнопке -->
+        <svg class="heart-svg" id="heartSvg" viewBox="0 0 24 24" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path id="heartPath"
+            d="M12 21s-7.5-4.8-9.5-7.4C-0.5 9.2 4.2 4.7 7.8 6.4 9.6 7.3 12 9 12 9s2.4-1.7 4.2-2.6C19.8 4.7 24.5 9.2 21.5 13.6 19.5 16.2 12 21 12 21z"
+            fill="#ffd7e0" stroke="#ff2e6b" stroke-width="0.8" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a class="telegram-link" href="https://t.me/+zxZwFz9xOA43ODVi" target="_blank" rel="noopener">
+        Вступить в Telegram
+      </a>
+
+      <!-- кнопка, чтобы показать эффект пульса и менять цвет сердца -->
+      <button id="likeBtn" style="
+          background:#fff;
+          border:1px solid rgba(59,43,90,0.06);
+          padding:12px 16px;
+          border-radius:12px;
+          cursor:pointer;
+          font-weight:600;
+      ">
+        Поставить ❤
+      </button>
+    </div>
+
+    <div class="footer">Приятное общение, удачи вам путешественик!❤️<code>мы вас любим!</code> (не спрашивайте что как я это делаю)</div>
+  </div>
+
+  <script>
+    // Логика кнопки — переключает заливку сердца и запускает пульс
+    const likeBtn = document.getElementById('likeBtn');
+    const heartPath = document.getElementById('heartPath');
+    const heartSvg = document.getElementById('heartSvg');
+
+    let liked = false;
+    likeBtn.addEventListener('click', () => {
+      liked = !liked;
+      if (liked) {
+        heartPath.setAttribute('fill', '#ff2e6b');
+        heartPath.setAttribute('stroke', '#ff2e6b');
+      } else {
+        heartPath.setAttribute('fill', '#ffd7e0');
+        heartPath.setAttribute('stroke', '#ff2e6b');
+      }
+      // пульс
+      heartSvg.classList.remove('pulse');
+      // принудительный reflow, чтобы анимация сработала снова
+      void heartSvg.offsetWidth;
+      heartSvg.classList.add('pulse');
+    });
+  </script>
+</body>
+</html>
